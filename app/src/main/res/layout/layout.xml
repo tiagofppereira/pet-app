@@ -3,16 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/background"
     tools:context="com.example.tiago.petapp.MainActivity">
 
-    <!-- Comment this ImageView after you have handled the image background with Java at the Activity-->
-    <!--    <ImageView
+    <!--<ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/background"
-            android:scaleType="centerCrop"
+            android:scaleType="fitCenter"
             android:id="@+id/formBack"
             />-->
 
