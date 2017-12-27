@@ -44,7 +44,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Bem-vindo!"
+                android:text="Get Started"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -56,7 +56,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Preencha os seguintes campos para efetuar o  login"
+                android:text="Just a few details to get you started"
                 android:textColor="@color/white"
                 android:textSize="12sp"
                 android:layout_marginBottom="30dp"
@@ -94,19 +94,44 @@
                 android:layout_marginBottom="10dp"
 
                 />
-
-            <Button
+            <AutoCompleteTextView
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
+                android:hint="Confirm Password"
+                android:background="@drawable/rounded_white"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:drawableLeft="@drawable/ic_confirm_icon"
+                android:textSize="14sp"
+                android:drawablePadding="5dp"
+                android:paddingStart="10dp"
+                android:inputType="textPassword"
+                android:id="@+id/userCPassword"
+                android:layout_marginBottom="10dp"
+
+                />
+
+            <RadioButton
+                android:id="@+id/radioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="I agree to the Terms and Conditions"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:button="@drawable/radio_button"
+                android:paddingLeft="5dp"
+                android:textSize="13sp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_marginBottom="36dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/register_button"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginEnd="15dp"
-                android:text="Login"
+                android:text="Register"
                 android:textColor="@color/white"
                 android:textStyle="normal" />
 
@@ -116,7 +141,8 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ainda não tem conta? Registe-se aqui!"
+        android:text="We will be sending a confirmation code via SMS.
+    Please input the CODE to activate your account"
         android:textColor="@color/white"
         android:layout_below="@+id/scrollView"
         android:layout_marginTop="16dp"

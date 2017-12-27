@@ -2,6 +2,7 @@ package com.example.tiago.petapp;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.WindowManager;
 
 public class MainActivity extends Activity {
 
@@ -11,3 +12,4 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
     }
 }
+
