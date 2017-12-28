@@ -1,0 +1,73 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.tiago.petapp.MainFragment">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="436dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="187dp"
+        android:scaleType="fitStart"
+        android:src="@drawable/header_img" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_below="@+id/textView2"
+        android:layout_marginEnd="103dp"
+        android:layout_marginTop="10dp"
+        android:layout_toStartOf="@+id/button3"
+        android:src="@drawable/picture_btn" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/imageView2"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="66dp"
+        android:text="Tiago"
+        android:textColor="#ffffffff"
+        android:textSize="40sp" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="353dp"
+        android:layout_height="48dp"
+        android:layout_below="@+id/imageView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp"
+        android:src="@drawable/animais_btn"/>
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_alignEnd="@+id/imageView5"
+        android:layout_alignTop="@+id/imageView5"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/add"/>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_alignBottom="@+id/imageView"
+        android:layout_alignEnd="@+id/imageView5"
+        android:layout_marginBottom="6dp"
+        android:background="@drawable/add"/>
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="353dp"
+        android:layout_height="44dp"
+        android:layout_alignBottom="@+id/imageView"
+        android:layout_alignStart="@+id/imageView5"
+        android:layout_marginStart="6dp"
+        android:src="@drawable/consultas_btnprinc"/>
+
+</RelativeLayout>
