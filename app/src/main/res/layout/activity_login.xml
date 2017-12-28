@@ -3,13 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.tiago.petapp.MainActivity">
+    tools:context="com.example.tiago.petapp.LoginActivity">
 
-    <!--<ImageView
+        <!--<ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/background"
-            android:scaleType="fitCenter"
+            android:layout_centerInParent="true"
+            android:scaleType="fitXY"
             android:id="@+id/formBack"
             />-->
 
@@ -20,6 +21,7 @@
         android:src="@drawable/ic_logo"
         android:scaleType="fitCenter"
         android:layout_marginBottom="30dp"
+        android:layout_marginTop="30dp"
         />
 
     <ScrollView
@@ -41,7 +43,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Get Started"
+                android:text="Bem-vindo!"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -53,7 +55,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Just a few details to get you started"
+                android:text="Preencha os seguintes campos para efetuar o  login"
                 android:textColor="@color/white"
                 android:textSize="12sp"
                 android:layout_marginBottom="30dp"
@@ -91,44 +93,19 @@
                 android:layout_marginBottom="10dp"
 
                 />
-            <AutoCompleteTextView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:hint="Confirm Password"
-                android:background="@drawable/rounded_white"
-                android:layout_marginStart="15dp"
-                android:layout_marginEnd="15dp"
-                android:drawableLeft="@drawable/ic_confirm_icon"
-                android:textSize="14sp"
-                android:drawablePadding="5dp"
-                android:paddingStart="10dp"
-                android:inputType="textPassword"
-                android:id="@+id/userCPassword"
-                android:layout_marginBottom="10dp"
-
-                />
-
-            <RadioButton
-                android:id="@+id/radioButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="I agree to the Terms and Conditions"
-                android:textColor="@color/white"
-                android:layout_gravity="center"
-                android:button="@drawable/radio_button"
-                android:paddingLeft="5dp"
-                android:textSize="13sp" />
 
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:layout_marginBottom="36dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/register_button"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
-                android:text="Register"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:text="Login"
                 android:textColor="@color/white"
                 android:textStyle="normal" />
 
@@ -138,8 +115,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="We will be sending a confirmation code via SMS.
-    Please input the CODE to activate your account"
+        android:text="Ainda não tem conta? Registe-se aqui!"
         android:textColor="@color/white"
         android:layout_below="@+id/scrollView"
         android:layout_marginTop="16dp"

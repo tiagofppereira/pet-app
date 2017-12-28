@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+<item android:id="@+id/db" android:title="dashboard" />
+<item android:id="@+id/pets" android:title="Pets" />
+<item android:id="@+id/consultas" android:title="Consultas" />
+<item android:id="@+id/settings" android:title="Definiçoes" />
+<item android:id="@+id/vets" android:title="VetMap" />
+<item android:id="@+id/logout" android:title="Logout" />
+
+</menu>
