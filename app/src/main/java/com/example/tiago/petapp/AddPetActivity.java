@@ -38,7 +38,7 @@ public class AddPetActivity extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_pet, container, false);
+        View rootView = inflater.inflate(R.layout.activity_add_pet, container, false);
         a = new AdaptadorBaseDados(getActivity()).open();
         /*final Button mainButton = (Button) rootView.findViewById(R.id.main_button);
         mainButton.setOnClickListener(new View.OnClickListener() {
@@ -62,7 +62,7 @@ public class AddPetActivity extends Fragment {
 
         //Spinner
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(),
-                R.array.planets_array, android.R.layout.simple_spinner_item);
+                R.array.animals_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
@@ -72,7 +72,6 @@ public class AddPetActivity extends Fragment {
                         editIdade.getText().toString(), spinner.getSelectedItem().toString(),
                         editRaça.getText().toString()
                 );
-                Log.d("inserido", "inserido");
             }
         });
 
