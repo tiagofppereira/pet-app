@@ -12,5 +12,9 @@ public class RegistarActivity extends Activity {
         setContentView(R.layout.activity_registar);
         getWindow().setBackgroundDrawableResource(R.drawable.background);
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
+        //Verificar se email já se encontra na base dados.
+        //Se sim envia mensagem, se nao aceita e fica registado
+
     }
 }

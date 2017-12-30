@@ -24,7 +24,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.tiago.petapp.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -33,6 +33,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".AddConsultaActivity" />
+        <activity android:name=".ConsultaFragment" />
+        <activity android:name=".PetFragment" />
+        <activity android:name=".PetDetails"></activity>
     </application>
 
 </manifest>

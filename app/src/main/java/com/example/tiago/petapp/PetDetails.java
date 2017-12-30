@@ -15,13 +15,13 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PetFragment extends Fragment {
+public class PetDetails extends Fragment {
 
     ListView list;
     List osPets;
     protected AdaptadorBaseDados a;
 
-    public PetFragment() {
+    public PetDetails() {
         // Required empty public constructor
     }
 
@@ -29,21 +29,9 @@ public class PetFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_pet, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_pet_details, container, false);
         //Mostrar todos os animais desse utilizador
-        a = new AdaptadorBaseDados(getActivity()).open();
-        osPets = a.obterAnimais();
 
-        list = (ListView) rootView.findViewById(R.id.listA);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
-                android.R.layout.simple_list_item_1, android.R.id.text1, osPets);
-
-
-        // Assign adapter to ListView
-        list.setAdapter(adapter);
-
-
-        // Inflate the layout for this fragment
         return rootView;
     }
 

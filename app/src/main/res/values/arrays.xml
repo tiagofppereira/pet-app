@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="planets_array">
+        <item>Cão</item>
+        <item>Gato</item>
+        <item>Pássaro</item>
+        <item>Hamster</item>
+    </string-array>
+</resources>
