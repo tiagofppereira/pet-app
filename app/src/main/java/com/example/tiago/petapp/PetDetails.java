@@ -8,6 +8,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -17,9 +20,9 @@ import java.util.List;
  */
 public class PetDetails extends Fragment {
 
-    ListView list;
-    List osPets;
+    TextView nome, raca, especie, idade;
     protected AdaptadorBaseDados a;
+    String[] osDetails;
 
     public PetDetails() {
         // Required empty public constructor
@@ -31,6 +34,20 @@ public class PetDetails extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_pet_details, container, false);
         //Mostrar todos os animais desse utilizador
+        a = new AdaptadorBaseDados(getActivity()).open();
+        String id = getArguments().getString("id");
+        osDetails = a.obterDetalhesRegisto(id);
+
+
+        nome = (TextView) rootView.findViewById(R.id.nome);
+        raca = (TextView) rootView.findViewById(R.id.raca);
+        especie = (TextView) rootView.findViewById(R.id.especie);
+        idade = (TextView) rootView.findViewById(R.id.idade);
+
+        nome.setText(String.valueOf(osDetails[1]));
+        idade.setText(String.valueOf(osDetails[2]));
+        especie.setText(String.valueOf(osDetails[3]));
+        raca.setText(String.valueOf(osDetails[4]));
 
         return rootView;
     }

@@ -11,18 +11,96 @@
         android:layout_width="160dp"
         android:layout_height="160dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="100dp"
         android:src="@drawable/profile"
         tools:layout_editor_absoluteX="60dp"
         tools:layout_editor_absoluteY="103dp" />
 
     <TextView
+        android:id="@+id/textNome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:textSize="18sp"
         android:textColor="@color/colorPrimaryText"
         android:layout_marginStart="220dp"
-        android:layout_marginTop="65dp"
-        android:text="TextView" />
+        android:layout_marginTop="105dp"
+        android:text="Nome" />
+
+    <TextView
+        android:id="@+id/textNome4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="270dp"
+        android:layout_weight="1"
+        android:text="Espécie"
+        android:textColor="@color/colorPrimaryText"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textNome5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="365dp"
+        android:layout_weight="1"
+        android:text="Raça"
+        android:textColor="@color/colorPrimaryText"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textNome2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="200dp"
+        android:layout_weight="1"
+        android:text="Idade"
+        android:textColor="@color/colorPrimaryText"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/idade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="225dp"
+        android:layout_weight="1"
+        android:text="1 ano"
+        android:textColor="@color/colorPrimaryText"
+        android:textSize="28sp" />
+
+    <TextView
+        android:id="@+id/nome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="130dp"
+        android:layout_weight="1"
+        android:text="Oscar"
+        android:textColor="@color/colorPrimaryText"
+        android:textSize="28sp" />
+
+    <TextView
+        android:id="@+id/especie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="295dp"
+        android:layout_weight="1"
+        android:text="Cão"
+        android:textColor="@color/colorPrimaryText"
+        android:textSize="28sp" />
+
+    <TextView
+        android:id="@+id/raca"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="390dp"
+        android:layout_weight="1"
+        android:text="Pastor Alemão"
+        android:textColor="@color/colorPrimaryText"
+        android:textSize="28sp" />
 </RelativeLayout>

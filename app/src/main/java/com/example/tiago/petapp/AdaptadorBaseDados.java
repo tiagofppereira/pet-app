@@ -27,7 +27,7 @@ public class AdaptadorBaseDados {
         colunas[2] = "idade";
         colunas[3] = "especie";
         colunas[4] = "raca";
-        return database.query("pet", colunas, null, null, null, null, "nome");
+        return database.query("pet", colunas, null, null, null, null, "_id");
     }
     /*public List<String> obterTodosNumeros() {
         ArrayList<String> numeros = new ArrayList<String>();
@@ -41,8 +41,8 @@ public class AdaptadorBaseDados {
         return numeros;
     }*/
 
-    /*public String[] obterDetalhesRegisto(String id) {
-        Cursor db = obterTodosRegistos();
+    public String[] obterDetalhesRegisto(String id) {
+        Cursor db = obterTodosAnimais();
         String[] registo = new String[5];
         if (db.moveToFirst()) {
             do {
@@ -51,12 +51,13 @@ public class AdaptadorBaseDados {
                     registo[1] = db.getString(1);
                     registo[2] = db.getString(2);
                     registo[3] = db.getString(3);
+                    registo[4] = db.getString(4);
                 }
             } while (db.moveToNext());
         }
         db.close();
         return registo;
-    }*/
+    }
 
     public List<String> obterAnimais() {
         ArrayList<String> pets = new ArrayList<String>();
@@ -71,9 +72,9 @@ public class AdaptadorBaseDados {
         return pets;
     }
 
-    /*public List<String> obterTodosIds() {
+    public List<String> obterTodosIds() {
         ArrayList<String> ids = new ArrayList<String>();
-        Cursor cursor = obterTodosRegistos();
+        Cursor cursor = obterTodosAnimais();
         if (cursor.moveToFirst()) {
             do {
                 ids.add(cursor.getString(0));
@@ -81,7 +82,7 @@ public class AdaptadorBaseDados {
         }
         cursor.close();
         return ids;
-    }*/
+    }
 
     public int obterTodosCampos(List<Integer> osIds, List<String> osNumeros, List<String> osNomes) {
         String[] colunas = new String[23];
@@ -100,6 +101,7 @@ public class AdaptadorBaseDados {
         c.close();
         return osIds.size();
     }
+
     public boolean existe(String umNome) {
         Cursor cursor = database.rawQuery(
                 "select nome from spinner where nome=?", new String[] { umNome });
