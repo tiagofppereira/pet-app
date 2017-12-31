@@ -12,9 +12,10 @@
         android:layout_height="160dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="100dp"
-        android:src="@drawable/profile"
+        android:src="@drawable/profile_dog"
         tools:layout_editor_absoluteX="60dp"
-        tools:layout_editor_absoluteY="103dp" />
+        tools:layout_editor_absoluteY="103dp"
+        />
 
     <TextView
         android:id="@+id/textNome"

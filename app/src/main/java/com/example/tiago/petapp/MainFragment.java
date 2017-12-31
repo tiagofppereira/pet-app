@@ -9,7 +9,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
+
+import java.util.List;
 
 
 /**
@@ -21,6 +26,10 @@ public class MainFragment extends Fragment {
     Button addPet;
     Button addConsulta;
     Toolbar toolbar;
+    ListView list;
+    List osPets, asCons, asHoras;
+    ListView listCons;
+    protected AdaptadorBaseDados a;
 
     private void executarOutraActivity(Class<?> subActividade, int oValor) {
         Intent x = new Intent(getActivity(), subActividade);
@@ -65,6 +74,84 @@ public class MainFragment extends Fragment {
                 fragmentTransaction.commit();
             }
         });
+
+        a = new AdaptadorBaseDados(getActivity()).open();
+
+        //Animais
+        osPets = a.obterAnimais();
+        list = (ListView) rootView.findViewById(R.id.listPet);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_list_item_1, android.R.id.text1, osPets);
+
+
+        // Assign adapter to ListView
+        list.setAdapter(adapter);
+
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+
+                // ListView Clicked item index
+                int itemPosition = position;
+
+                // ListView Clicked item value
+                String  itemValue = (String) list.getItemAtPosition(position);
+
+                //a.obterDetalhesRegisto(id);
+
+                Fragment fragment = new PetDetails();
+                Bundle bundle = new Bundle();
+                bundle.putString("id", (Integer.toString(position + 1)));
+                fragment.setArguments(bundle);
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+
+            }
+        });
+
+        //Consultas
+        listCons = (ListView) rootView.findViewById(R.id.listCons);
+        asCons = a.obterConsultas();
+
+        ArrayAdapter<String> adapterCons = new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_list_item_1, android.R.id.text1, asCons);
+
+
+        // Assign adapter to ListView
+        listCons.setAdapter(adapterCons);
+
+        listCons.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+
+                // ListView Clicked item index
+                int itemPosition = position;
+
+                // ListView Clicked item value
+                String  itemValue = (String) list.getItemAtPosition(position);
+
+                //a.obterDetalhesRegisto(id);
+
+               /*Fragment fragment = new PetDetails();
+                Bundle bundle = new Bundle();
+                bundle.putString("id", (Integer.toString(position + 1)));
+                fragment.setArguments(bundle);
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();*/
+
+            }
+        });
+
+
+
 
 
 

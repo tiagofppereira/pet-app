@@ -4,8 +4,8 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 public class AjudaUsoBaseDados extends SQLiteOpenHelper {
-    private static final String DATABASE_NAME = "base-dados.db";
-    private static final int VERSION = 4;
+    private static final String DATABASE_NAME = "pet.db";
+    private static final int VERSION = 1;
     public AjudaUsoBaseDados(Context context) {
         super(context, DATABASE_NAME, null, VERSION);
     }
@@ -16,7 +16,8 @@ public class AjudaUsoBaseDados extends SQLiteOpenHelper {
 
         String e = "CREATE TABLE pet(_id integer primary key autoincrement, nome varchar(40), idade varchar(40), " +
                 "especie varchar(40), raca varchar(40))";
-        String c = "CREATE TABLE consultas (_id integer primary key autoincrement, data varchar(40), " +
+        String c = "CREATE TABLE consultas (_id integer primary key autoincrement, razao varchar(40), " +
+                "data varchar(40), " +
                 "hora varchar(40), " +
                 "id_animal integer, FOREIGN KEY (id_animal) REFERENCES pet(_id))";
 

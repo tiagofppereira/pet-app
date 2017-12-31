@@ -100,7 +100,7 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/buttonInsert"
+        android:id="@+id/buttonAddConsulta"
         android:layout_width="343dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -144,7 +144,7 @@
         android:id="@+id/buttonTimePicker"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_alignEnd="@+id/buttonInsert"
+        android:layout_alignEnd="@+id/buttonAddConsulta"
         android:layout_alignTop="@+id/editHora"
         android:background="@drawable/clock" />
 

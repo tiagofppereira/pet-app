@@ -29,6 +29,16 @@ public class AdaptadorBaseDados {
         colunas[4] = "raca";
         return database.query("pet", colunas, null, null, null, null, "_id");
     }
+
+    private Cursor obterTodasConsultas() {
+        String[] colunas = new String[5];
+        colunas[0] = "_id";
+        colunas[1] = "razao";
+        colunas[2] = "data";
+        colunas[3] = "hora";
+        colunas[4] = "id_animal";
+        return database.query("consultas", colunas, null, null, null, null, "data");
+    }
     /*public List<String> obterTodosNumeros() {
         ArrayList<String> numeros = new ArrayList<String>();
         Cursor cursor = obterTodosRegistos();
@@ -71,6 +81,20 @@ public class AdaptadorBaseDados {
         cursor.close();
         return pets;
     }
+
+    public List<String> obterConsultas() {
+        ArrayList<String> consultas = new ArrayList<String>();
+        Cursor cursor = obterTodasConsultas();
+
+        if (cursor.moveToFirst()) {
+            do {
+                consultas.add(cursor.getString(2));
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return consultas;
+    }
+
 
     public List<String> obterTodosIds() {
         ArrayList<String> ids = new ArrayList<String>();
@@ -117,6 +141,16 @@ public class AdaptadorBaseDados {
         values.put("raca", raca);
         return database.insert("pet", null, values);
     }
+
+    public long inserirConsulta(String razao, String data, String hora, Integer id_animal) {
+        ContentValues values = new ContentValues() ;
+        values.put("razao", razao);
+        values.put("data", data);
+        values.put("hora", hora);
+        values.put("id_animal", id_animal);
+        return database.insert("consultas", null, values);
+    }
+
     public int deleteNome(String oNome) {
         String whereClause = "nome = ?";
         String[] whereArgs = new String[1];

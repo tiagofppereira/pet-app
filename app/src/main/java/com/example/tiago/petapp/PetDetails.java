@@ -2,6 +2,7 @@ package com.example.tiago.petapp;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +24,7 @@ public class PetDetails extends Fragment {
     TextView nome, raca, especie, idade;
     protected AdaptadorBaseDados a;
     String[] osDetails;
+    Toolbar toolbar;
 
     public PetDetails() {
         // Required empty public constructor
@@ -38,6 +40,8 @@ public class PetDetails extends Fragment {
         String id = getArguments().getString("id");
         osDetails = a.obterDetalhesRegisto(id);
 
+        toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
+        toolbar.setTitle(String.valueOf(osDetails[1]));
 
         nome = (TextView) rootView.findViewById(R.id.nome);
         raca = (TextView) rootView.findViewById(R.id.raca);

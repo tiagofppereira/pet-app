@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +24,7 @@ public class PetFragment extends Fragment {
     ListView list;
     List osPets;
     protected AdaptadorBaseDados a;
+    Toolbar toolbar;
 
     public PetFragment() {
         // Required empty public constructor
@@ -34,6 +36,10 @@ public class PetFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_pet, container, false);
         //Mostrar todos os animais desse utilizador
+
+        toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
+        toolbar.setTitle("Animais");
+
         a = new AdaptadorBaseDados(getActivity()).open();
         osPets = a.obterAnimais();
 

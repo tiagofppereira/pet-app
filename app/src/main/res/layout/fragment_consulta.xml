@@ -3,16 +3,12 @@
     android:layout_height="match_parent"
     tools:context="com.example.tiago.petapp.ConsultaFragment">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="GALLERY"
-        android:padding="8dp"
-        android:textColor="#fff"
-        android:background="@color/colorPrimary"
-        android:textSize="28sp"
-        android:id="@+id/buttonA"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
 
+    <ListView
+        android:id="@+id/listC"
+        android:layout_width="395dp"
+        android:layout_height="587dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="88dp"/>
 </RelativeLayout>
