@@ -25,6 +25,7 @@ public class ConsultaFragment extends Fragment {
     List asCons;
     protected AdaptadorBaseDados a;
     Toolbar toolbar;
+    String[] consData;
 
     public ConsultaFragment() {
         // Required empty public constructor
@@ -59,18 +60,18 @@ public class ConsultaFragment extends Fragment {
 
                 // ListView Clicked item value
                 String  itemValue = (String) list.getItemAtPosition(position);
-
+                consData = a.obterDetalhesConsultaData(itemValue);
                 //a.obterDetalhesRegisto(id);
 
-                /*Fragment fragment = new PetDetails();
+                Fragment fragment = new ConsultaDetails();
                 Bundle bundle = new Bundle();
-                bundle.putString("id", (Integer.toString(position + 1)));
+                bundle.putString("id", (consData[0]));
                 fragment.setArguments(bundle);
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, fragment);
                 fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();*/
+                fragmentTransaction.commit();
 
             }
         });

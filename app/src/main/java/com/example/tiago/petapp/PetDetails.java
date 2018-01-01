@@ -2,10 +2,13 @@ package com.example.tiago.petapp;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -25,6 +28,9 @@ public class PetDetails extends Fragment {
     protected AdaptadorBaseDados a;
     String[] osDetails;
     Toolbar toolbar;
+    ListView listCons;
+    List asCons;
+    String[] consData;
 
     public PetDetails() {
         // Required empty public constructor
@@ -52,6 +58,44 @@ public class PetDetails extends Fragment {
         idade.setText(String.valueOf(osDetails[2]));
         especie.setText(String.valueOf(osDetails[3]));
         raca.setText(String.valueOf(osDetails[4]));
+
+        //Consultas
+        listCons = (ListView) rootView.findViewById(R.id.consultasAnim);
+        asCons = a.obterConsultasAnimal(osDetails[0]);
+
+        ArrayAdapter<String> adapterCons = new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_list_item_1, android.R.id.text1, asCons);
+
+
+        // Assign adapter to ListView
+        listCons.setAdapter(adapterCons);
+
+        listCons.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+
+                // ListView Clicked item index
+                int itemPosition = position;
+
+                // ListView Clicked item value
+                consData = a.obterDetalhesConsultaData((String) listCons.getItemAtPosition(position));
+                //a.obterDetalhesRegisto(id);
+
+                /*Fragment fragment = new ConsultaDetails();
+                Bundle bundle = new Bundle();
+                bundle.putString("id", (consData[0]));
+                fragment.setArguments(bundle);
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();*/
+
+            }
+        });
+
+
 
         return rootView;
     }

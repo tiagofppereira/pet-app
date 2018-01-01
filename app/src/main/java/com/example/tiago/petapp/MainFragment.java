@@ -30,6 +30,7 @@ public class MainFragment extends Fragment {
     List osPets, asCons, asHoras;
     ListView listCons;
     protected AdaptadorBaseDados a;
+    String[] consData;
 
     private void executarOutraActivity(Class<?> subActividade, int oValor) {
         Intent x = new Intent(getActivity(), subActividade);
@@ -133,19 +134,18 @@ public class MainFragment extends Fragment {
                 int itemPosition = position;
 
                 // ListView Clicked item value
-                String  itemValue = (String) list.getItemAtPosition(position);
-
+                consData = a.obterDetalhesConsultaData((String) listCons.getItemAtPosition(position));
                 //a.obterDetalhesRegisto(id);
 
-               /*Fragment fragment = new PetDetails();
+                Fragment fragment = new ConsultaDetails();
                 Bundle bundle = new Bundle();
-                bundle.putString("id", (Integer.toString(position + 1)));
+                bundle.putString("id", (consData[0]));
                 fragment.setArguments(bundle);
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, fragment);
                 fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();*/
+                fragmentTransaction.commit();
 
             }
         });

@@ -37,7 +37,7 @@ public class AdaptadorBaseDados {
         colunas[2] = "data";
         colunas[3] = "hora";
         colunas[4] = "id_animal";
-        return database.query("consultas", colunas, null, null, null, null, "data");
+        return database.query("consultas", colunas, null, null, null, null, "data DESC");
     }
     /*public List<String> obterTodosNumeros() {
         ArrayList<String> numeros = new ArrayList<String>();
@@ -68,6 +68,59 @@ public class AdaptadorBaseDados {
         db.close();
         return registo;
     }
+
+    public String[] obterDetalhesConsulta(String id) {
+        Cursor db = obterTodasConsultas();
+        String[] registo = new String[5];
+        if (db.moveToFirst()) {
+            do {
+                if(db.getString(0).equals(id)) {
+                    registo[0] = db.getString(0);
+                    registo[1] = db.getString(1);
+                    registo[2] = db.getString(2);
+                    registo[3] = db.getString(3);
+                    registo[4] = db.getString(4);
+                }
+            } while (db.moveToNext());
+        }
+        db.close();
+        return registo;
+    }
+
+    public String[] obterDetalhesConsultaData(String data) {
+        Cursor db = obterTodasConsultas();
+        String[] registo = new String[5];
+        if (db.moveToFirst()) {
+            do {
+                if(db.getString(2).equals(data)) {
+                    registo[0] = db.getString(0);
+                    registo[1] = db.getString(1);
+                    registo[2] = db.getString(2);
+                    registo[3] = db.getString(3);
+                    registo[4] = db.getString(4);
+                }
+            } while (db.moveToNext());
+        }
+        db.close();
+        return registo;
+    }
+
+    public List<String> obterConsultasAnimal(String id_animal) {
+        ArrayList<String> consultas = new ArrayList<String>();
+        Cursor cursor = obterTodasConsultas();
+
+        if (cursor.moveToFirst()) {
+            do {
+                if(cursor.getString(4).equals(id_animal)) {
+                    consultas.add(cursor.getString(2));
+                }
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return consultas;
+    }
+
+
 
     public List<String> obterAnimais() {
         ArrayList<String> pets = new ArrayList<String>();

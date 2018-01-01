@@ -36,7 +36,7 @@
         <activity android:name=".AddConsultaActivity" />
         <activity android:name=".ConsultaFragment" />
         <activity android:name=".PetFragment" />
-        <activity android:name=".PetDetails"></activity>
+        <activity android:name=".PetDetails" />
     </application>
 
 </manifest>

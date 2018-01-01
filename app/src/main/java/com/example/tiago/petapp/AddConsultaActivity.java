@@ -39,7 +39,7 @@ public class AddConsultaActivity extends Fragment {
     protected AdaptadorBaseDados a;
     List pets;
     String[] anim;
-    final int id = -1;
+    int id;
 
     public AddConsultaActivity() {
         // Required empty public constructor
@@ -82,7 +82,7 @@ public class AddConsultaActivity extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view,
                                        int position, long id) {
-                id = spinnerAnimal.getSelectedItemPosition() + 1 ;
+                final int id_animal = spinnerAnimal.getSelectedItemPosition() + 1 ;
 
 
             }
@@ -112,8 +112,8 @@ public class AddConsultaActivity extends Fragment {
             public void onClick(View view) {
                 a.inserirConsulta(editRazao.getText().toString(),
                         editData.getText().toString(), editHora.getText().toString(),
-                        id
-                );
+                        spinnerAnimal.getSelectedItemPosition() + 1);
+
             }
         });
 

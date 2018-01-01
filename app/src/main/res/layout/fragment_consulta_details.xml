@@ -1,10 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.tiago.petapp.PetDetails">
+    tools:context="com.example.tiago.petapp.ConsultaDetails">
 
     <ImageView
         android:id="@+id/profileImage"
@@ -12,7 +10,7 @@
         android:layout_height="160dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="100dp"
-        android:src="@drawable/profile_dog"
+        android:src="@drawable/consulta_prof"
         tools:layout_editor_absoluteX="60dp"
         tools:layout_editor_absoluteY="103dp"
         />
@@ -26,7 +24,7 @@
         android:textColor="@color/colorPrimaryText"
         android:layout_marginStart="220dp"
         android:layout_marginTop="105dp"
-        android:text="Nome" />
+        android:text="Data" />
 
     <TextView
         android:id="@+id/textNome4"
@@ -35,7 +33,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="270dp"
         android:layout_weight="1"
-        android:text="Espécie"
+        android:text="Animal"
         android:textColor="@color/colorPrimaryText"
         android:textSize="18sp" />
 
@@ -46,7 +44,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="365dp"
         android:layout_weight="1"
-        android:text="Raça"
+        android:text="Razão"
         android:textColor="@color/colorPrimaryText"
         android:textSize="18sp" />
 
@@ -57,12 +55,12 @@
         android:layout_marginStart="220dp"
         android:layout_marginTop="200dp"
         android:layout_weight="1"
-        android:text="Idade"
+        android:text="Hora"
         android:textColor="@color/colorPrimaryText"
         android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/idade"
+        android:id="@+id/hora"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="220dp"
@@ -73,7 +71,7 @@
         android:textSize="28sp" />
 
     <TextView
-        android:id="@+id/nome"
+        android:id="@+id/data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="220dp"
@@ -84,7 +82,7 @@
         android:textSize="28sp" />
 
     <TextView
-        android:id="@+id/especie"
+        android:id="@+id/id_animal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
@@ -95,7 +93,7 @@
         android:textSize="28sp" />
 
     <TextView
-        android:id="@+id/raca"
+        android:id="@+id/razao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
@@ -104,21 +102,4 @@
         android:text="Pastor Alemão"
         android:textColor="@color/colorPrimaryText"
         android:textSize="28sp" />
-
-    <ListView
-        android:id="@+id/consultasAnim"
-        android:layout_width="350dp"
-        android:layout_height="match_parent"
-        android:layout_alignStart="@+id/imageView"
-        android:layout_below="@+id/imageView"
-        android:layout_marginTop="6dp" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/raca"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="45dp"
-        android:src="@drawable/consultas_btnprinc" />
 </RelativeLayout>
