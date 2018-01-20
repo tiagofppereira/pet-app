@@ -1,7 +1,7 @@
 package com.example.tiago.petapp;
 
-
-
+import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -17,21 +17,24 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AddPetActivity extends Fragment {
+public class EditPet extends Fragment {
 
     EditText editNome;
     EditText editIdade;
     EditText editRaça;
     EditText editEspecie;
     TextView textNome;
-    Button buttonInsert;
+    Button buttonEdit;
     Toolbar toolbar;
+    String[] osDetalhes;
     protected AdaptadorBaseDados a;
 
-    public AddPetActivity() {
+
+    public EditPet() {
         // Required empty public constructor
     }
 
@@ -39,16 +42,8 @@ public class AddPetActivity extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.activity_add_pet, container, false);
-        a = new AdaptadorBaseDados(getActivity()).open();
-        /*final Button mainButton = (Button) rootView.findViewById(R.id.main_button);
-        mainButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                mainButton.setBackgroundColor(getContext().getResources().getColor(R.color.colorAccent));
-            }
-        });*/
+        // Inflate the layout for this fragment
+        View rootView = inflater.inflate(R.layout.fragment_edit_pet, container, false);
 
         toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
         toolbar.setTitle("Adicionar Animal");
@@ -58,29 +53,39 @@ public class AddPetActivity extends Fragment {
         editNome = (EditText) rootView.findViewById(R.id.editNome);
         editRaça = (EditText) rootView.findViewById(R.id.editRaça);
         editIdade = (EditText) rootView.findViewById(R.id.editIdade);
-        buttonInsert = (Button) rootView.findViewById(R.id.buttonAddConsulta);
-        final Spinner spinner = (Spinner) rootView.findViewById(R.id.spinnerEspecie);
+        editEspecie = (EditText) rootView.findViewById(R.id.editEspecie);
+        buttonEdit = (Button) rootView.findViewById(R.id.buttonEditPet);
 
         //Spinner
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(),
+        /*ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(),
                 R.array.animals_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
+        spinner.setAdapter(adapter);*/
+        a = new AdaptadorBaseDados(getActivity()).open();
+        final String id = getArguments().getString("id");
+        osDetalhes = a.obterDetalhesRegisto(id);
 
-        buttonInsert.setOnClickListener(new View.OnClickListener() {
+
+        editNome.setText(osDetalhes[1]);
+        editRaça.setText(osDetalhes[4]);
+        editIdade.setText(osDetalhes[2]);
+        editEspecie.setText(osDetalhes[3]);
+
+        buttonEdit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                a.inserirPet(editNome.getText().toString(),
-                        editIdade.getText().toString(), spinner.getSelectedItem().toString(),
-                        editRaça.getText().toString()
-                );
+                a.updatePet(Integer.parseInt(id), editNome.getText().toString(), editEspecie.getText().toString(),
+                        editRaça.getText().toString(), editIdade.getText().toString());
 
-                CharSequence text = "Animal Adicionado!";
+                CharSequence text = "Registo Editado!";
                 int duration = Toast.LENGTH_SHORT;
 
                 Toast toast = Toast.makeText(getActivity(), text, duration);
                 toast.show();
 
-                Fragment fragment = new MainFragment();
+                Fragment fragment = new PetDetails();
+                Bundle bundle = new Bundle();
+                bundle.putString("id", (id));
+                fragment.setArguments(bundle);
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, fragment);

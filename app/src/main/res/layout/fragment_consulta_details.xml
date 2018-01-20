@@ -102,4 +102,21 @@
         android:text="Pastor Alemão"
         android:textColor="@color/colorPrimaryText"
         android:textSize="28sp" />
+
+    <Button
+        android:id="@+id/buttonEdit"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignBottom="@+id/textNome"
+        android:layout_marginStart="-20dp"
+        android:layout_toEndOf="@+id/data"
+        android:background="@drawable/edit"/>
+    <Button
+        android:id="@+id/buttonDelete"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignBottom="@+id/textNome"
+        android:layout_marginStart="9dp"
+        android:layout_toEndOf="@+id/data"
+        android:background="@drawable/delete"/>
 </RelativeLayout>

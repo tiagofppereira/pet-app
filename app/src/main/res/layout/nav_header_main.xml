@@ -22,7 +22,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tiago Pereira"
+        android:text="PetApp"
         android:textSize="14sp"
         android:textColor="#FFF"
         android:textStyle="bold"
@@ -36,7 +36,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="tiagoffp4@gmail.com"
+        android:text="Bem-vindo"
         android:id="@+id/email"
         android:gravity="left"
         android:layout_marginBottom="8dp"

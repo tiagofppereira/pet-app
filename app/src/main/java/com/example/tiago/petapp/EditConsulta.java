@@ -1,12 +1,9 @@
 package com.example.tiago.petapp;
 
-
-
-import android.app.ActionBar;
-import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -28,24 +25,30 @@ import android.widget.Toast;
 import java.util.Calendar;
 import java.util.List;
 
+
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AddConsultaActivity extends Fragment {
+public class EditConsulta extends Fragment {
 
     EditText editRazao;
     EditText editHora;
     EditText editData;
-    Spinner spinnerAnimal;
-    Button buttonInsert, buttonTimePicker, buttonDatePicker;
+    EditText spinnerAnimal;
+    TextView editAnimal;
+    Button buttonInsert, buttonTimePicker, buttonDatePicker, buttonEdit;
     private int mYear, mMonth, mDay, mHour, mMinute;
+    String[] osDetails;
+    String[] oAnimal;
     Toolbar toolbar;
     protected AdaptadorBaseDados a;
     List pets;
     String[] anim;
     int id;
 
-    public AddConsultaActivity() {
+
+
+    public EditConsulta() {
         // Required empty public constructor
     }
 
@@ -53,7 +56,8 @@ public class AddConsultaActivity extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.activity_add_consulta, container, false);
+        // Inflate the layout for this fragment
+        View rootView = inflater.inflate(R.layout.fragment_edit_consulta, container, false);
 
         a = new AdaptadorBaseDados(getActivity()).open();
 
@@ -64,7 +68,7 @@ public class AddConsultaActivity extends Fragment {
         editRazao = (EditText) rootView.findViewById(R.id.editRazao);
         editData = (EditText) rootView.findViewById(R.id.editData);
         editHora = (EditText) rootView.findViewById(R.id.editHora);
-        spinnerAnimal = (Spinner) rootView.findViewById(R.id.spinnerAnimal);
+        editAnimal = (TextView) rootView.findViewById(R.id.editAnimal);
         buttonTimePicker = (Button) rootView.findViewById(R.id.buttonTimePicker);
         buttonDatePicker = (Button) rootView.findViewById(R.id.buttonDatePicker);
         buttonInsert = (Button) rootView.findViewById(R.id.buttonAddConsulta);
@@ -75,26 +79,11 @@ public class AddConsultaActivity extends Fragment {
         pets = a.obterAnimais();
         pets.toArray(new String[0]);
 
+        final String id = getArguments().getString("id");
+        osDetails = a.obterDetalhesConsulta(id);
+        oAnimal = a.obterDetalhesRegisto(osDetails[4]);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
-                android.R.layout.simple_spinner_item, pets);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerAnimal.setAdapter(adapter);
-
-        spinnerAnimal.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view,
-                                       int position, long id) {
-                final int id_animal = spinnerAnimal.getSelectedItemPosition() + 1 ;
-
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-                //nothing
-            }});
+        editAnimal.setText(String.valueOf(oAnimal[1]));
 
 
         buttonTimePicker.setOnClickListener(new View.OnClickListener() {
@@ -111,20 +100,24 @@ public class AddConsultaActivity extends Fragment {
             }
         });
 
+        final int oId = Integer.parseInt(String.valueOf(osDetails[0]));
+
         buttonInsert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                a.inserirConsulta(editRazao.getText().toString(),
-                        editData.getText().toString(), editHora.getText().toString(),
-                        spinnerAnimal.getSelectedItemPosition() + 1);
+                a.updateConsulta(oId, editRazao.getText().toString(),
+                        editData.getText().toString(), editHora.getText().toString());
 
-                CharSequence text = "Consulta Adicionada!";
+                CharSequence text = "Consulta Editada!";
                 int duration = Toast.LENGTH_SHORT;
 
                 Toast toast = Toast.makeText(getActivity(), text, duration);
                 toast.show();
 
-                Fragment fragment = new MainFragment();
+                Fragment fragment = new ConsultaDetails();
+                Bundle bundle = new Bundle();
+                bundle.putString("id", (id));
+                fragment.setArguments(bundle);
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, fragment);
@@ -133,6 +126,8 @@ public class AddConsultaActivity extends Fragment {
 
             }
         });
+
+
 
 
         // Inflate the layout for this fragment

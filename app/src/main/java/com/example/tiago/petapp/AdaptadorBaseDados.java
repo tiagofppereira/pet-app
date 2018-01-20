@@ -204,23 +204,45 @@ public class AdaptadorBaseDados {
         return database.insert("consultas", null, values);
     }
 
-    public int deleteNome(String oNome) {
-        String whereClause = "nome = ?";
+        public int deletePet(String id) {
+        String whereClause = "_id = ?";
+        String whereAnimal = "id_animal = ?"; //Para consultas
         String[] whereArgs = new String[1];
-        whereArgs[0] = oNome;
-        return database.delete("spinner", whereClause, whereArgs);
+        whereArgs[0] = id;
+        database.delete("consultas", whereAnimal, whereArgs);
+        return database.delete("pet", whereClause, whereArgs);
     }
+
+    public int deleteConsulta(String id) {
+        String whereClause = "_id = ?";
+        String[] whereArgs = new String[1];
+        whereArgs[0] = id;
+        return database.delete("consultas", whereClause, whereArgs);
+    }
+
     public int deleteTodosNomes() {
         return database.delete("spinner", null, null);
     }
-    public int updateNome(Integer oId, String oNumero, String oNome, String aMorada) {
+    public int updatePet(Integer oId, String oNome, String especie, String raca, String idade) {
         String whereClause = "_id = ?";
         String[] whereArgs = new String[1];
         whereArgs[0] = new Integer(oId).toString();
         ContentValues values = new ContentValues();
         values.put("nome", oNome);
-        values.put("numero", oNumero);
-        values.put("morada", aMorada);
-        return database.update("spinner", values, whereClause, whereArgs);
+        values.put("especie", especie);
+        values.put("raca", raca);
+        values.put("idade", idade);
+        return database.update("pet", values, whereClause, whereArgs);
+    }
+
+    public int updateConsulta(Integer oId, String razao, String data, String hora) {
+        String whereClause = "_id = ?";
+        String[] whereArgs = new String[1];
+        whereArgs[0] = new Integer(oId).toString();
+        ContentValues values = new ContentValues();
+        values.put("razao", razao);
+        values.put("data", data);
+        values.put("hora", hora);
+        return database.update("pet", values, whereClause, whereArgs);
     }
 }

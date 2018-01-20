@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -26,6 +27,7 @@ public class PetDetails extends Fragment {
 
     TextView nome, raca, especie, idade;
     protected AdaptadorBaseDados a;
+    Button buttonDelete, buttonEdit;
     String[] osDetails;
     Toolbar toolbar;
     ListView listCons;
@@ -43,12 +45,13 @@ public class PetDetails extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_pet_details, container, false);
         //Mostrar todos os animais desse utilizador
         a = new AdaptadorBaseDados(getActivity()).open();
-        String id = getArguments().getString("id");
+        final String id = getArguments().getString("id");
         osDetails = a.obterDetalhesRegisto(id);
 
         toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
         toolbar.setTitle(String.valueOf(osDetails[1]));
-
+        buttonDelete = (Button) rootView.findViewById(R.id.buttonDelete);
+        buttonEdit = (Button) rootView.findViewById(R.id.buttonEdit);
         nome = (TextView) rootView.findViewById(R.id.nome);
         raca = (TextView) rootView.findViewById(R.id.raca);
         especie = (TextView) rootView.findViewById(R.id.especie);
@@ -77,12 +80,13 @@ public class PetDetails extends Fragment {
 
                 // ListView Clicked item index
                 int itemPosition = position;
+                int total = listCons.getAdapter().getCount();
 
                 // ListView Clicked item value
                 consData = a.obterDetalhesConsultaData((String) listCons.getItemAtPosition(position));
                 //a.obterDetalhesRegisto(id);
 
-                /*Fragment fragment = new ConsultaDetails();
+                Fragment fragment = new ConsultaDetails();
                 Bundle bundle = new Bundle();
                 bundle.putString("id", (consData[0]));
                 fragment.setArguments(bundle);
@@ -90,7 +94,43 @@ public class PetDetails extends Fragment {
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, fragment);
                 fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();*/
+                fragmentTransaction.commit();
+
+            }
+        });
+
+        buttonEdit.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                Fragment fragment = new EditPet();
+                Bundle bundle = new Bundle();
+                bundle.putString("id", (id));
+                fragment.setArguments(bundle);
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+
+            }
+        });
+
+        buttonDelete.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                a.deletePet(id);
+
+                CharSequence text = "Registo Eliminado";
+                int duration = Toast.LENGTH_SHORT;
+
+                Toast toast = Toast.makeText(getActivity(), text, duration);
+                toast.show();
+
+                Fragment fragment = new MainFragment();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
 
             }
         });

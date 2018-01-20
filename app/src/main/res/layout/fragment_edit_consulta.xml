@@ -1,0 +1,166 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.example.tiago.petapp.EditConsulta">
+
+    <EditText
+        android:id="@+id/editHora"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginVertical="455dp"
+        android:clickable="true"
+        android:editable="false"
+        android:ems="10"
+        android:hint="17:30"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.608" />
+
+    <EditText
+        android:id="@+id/editRazao"
+        android:layout_width="338dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Vacina"
+        android:layout_marginStart="38dp"
+        android:layout_marginVertical="110dp"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.191" />
+
+    <EditText
+        android:id="@+id/editData"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginVertical="345dp"
+        android:ems="10"
+        android:hint="28/04/2018"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.191" />
+
+    <TextView
+        android:id="@+id/editAnimal"
+        android:layout_width="338dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Animal"
+        android:textSize="24dp"
+        android:textColor="#000000"
+        android:layout_marginStart="38dp"
+        android:layout_marginVertical="230dp"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.191" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:text="Razão da consulta"
+        android:textSize="18sp"
+        android:layout_marginStart="38dp"
+        android:layout_marginVertical="80dp"
+        tools:layout_editor_absoluteX="36dp"
+        tools:layout_editor_absoluteY="75dp"
+        android:textColor="@color/colorPrimaryText"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Animal"
+        android:textSize="18sp"
+        android:layout_marginStart="38dp"
+        android:layout_marginVertical="195dp"
+        tools:layout_editor_absoluteX="36dp"
+        tools:layout_editor_absoluteY="194dp"
+        android:textColor="@color/colorPrimaryText"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/buttonAddConsulta"
+        android:layout_width="343dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Editar"
+        android:layout_marginStart="38dp"
+        android:layout_marginVertical="525dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.797" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Data"
+        android:textSize="18sp"
+        android:layout_marginStart="38dp"
+        android:layout_marginVertical="310dp"
+        tools:layout_editor_absoluteX="36dp"
+        tools:layout_editor_absoluteY="302dp"
+        android:textColor="@color/colorPrimaryText"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hora"
+        android:textSize="18sp"
+        android:layout_marginStart="38dp"
+        android:layout_marginVertical="415dp"
+        tools:layout_editor_absoluteX="36dp"
+        tools:layout_editor_absoluteY="302dp"
+        android:textColor="@color/colorPrimaryText"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/buttonTimePicker"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignEnd="@+id/buttonAddConsulta"
+        android:layout_alignTop="@+id/editHora"
+        android:background="@drawable/clock" />
+
+    <Button
+        android:id="@+id/buttonDatePicker"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignStart="@+id/buttonTimePicker"
+        android:layout_alignTop="@+id/editData"
+        android:background="@drawable/calendar" />
+
+</RelativeLayout>

@@ -107,7 +107,7 @@
 
     <ListView
         android:id="@+id/consultasAnim"
-        android:layout_width="350dp"
+        android:layout_width="340dp"
         android:layout_height="match_parent"
         android:layout_alignStart="@+id/imageView"
         android:layout_below="@+id/imageView"
@@ -121,4 +121,21 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="45dp"
         android:src="@drawable/consultas_btnprinc" />
+
+    <Button
+        android:id="@+id/buttonEdit"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignBottom="@+id/textNome"
+        android:layout_marginStart="26dp"
+        android:layout_toEndOf="@+id/nome"
+        android:background="@drawable/edit"/>
+    <Button
+        android:id="@+id/buttonDelete"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignBottom="@+id/textNome"
+        android:layout_marginStart="60dp"
+        android:layout_toEndOf="@+id/nome"
+        android:background="@drawable/delete"/>
 </RelativeLayout>
